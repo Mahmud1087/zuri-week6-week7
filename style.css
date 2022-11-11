@@ -1,0 +1,87 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #272626;
+}
+
+.carousel {
+    height: 17rem;
+    overflow: hidden;
+    width: 22rem;
+    position: relative;
+}
+
+.carousel .carousel--item,
+.carousel .carousel--item--hidden {
+    display: none;
+}
+
+.carousel .carousel--item {
+    height: inherit;
+    width: inherit;
+}
+
+.carousel .carousel--item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.carousel .carousel--item.active {
+    display: block;
+    animation: fadeAnimation o.8s
+}
+
+@keyframes fadeAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: opacity linear;
+    }
+}
+
+.carousel .carousel--buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel .carousel--buttons button {
+    opacity: 0;
+    border-radius: 50px;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    color: orangered;
+    transition: all 0.3s ease-in-out;
+}
+
+.carousel:hover button {
+    opacity: 1;
+}
+
+.carousel .carousel--buttons button#prevBtn {
+    margin-left: 20px;
+}
+
+.carousel .carousel--buttons button#nextBtn {
+    margin-right: 20px;
+}
